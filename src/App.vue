@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import QuoteCard from "./components/quote-card/QuoteCard.vue";
-import { Quote } from "./types/quote";
 import axios from "axios";
+
+import QuoteCard from "./components/quote-card/QuoteCard.vue";
+import { type Quote } from "./types/quote";
 
 const quotes = ref<Quote[]>();
 const quote = ref<Quote>();
@@ -34,7 +35,7 @@ onMounted(() => {
   <div
     class="w-screen h-screen flex justify-center items-center bg-neutral-100"
   >
-    <template v-if="error"> there was an error loading data </template>
+    <template v-if="error">there was an error loading data </template>
     <template v-else-if="!quotes || !quote"> loading... </template>
     <template v-else>
       <QuoteCard
